@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-scale, initial-scale=1.0" />
+  <title>Pill Care (SPR)</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="manifest.json" />
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1>Pill Care (SPR)</h1>
+      <p class="tagline">💊 Never miss your medicine again!</p>
+    </header>
+
+    <!-- HOME PAGE -->
+    <section id="home" class="page active">
+      <h2>Add Reminder</h2>
+      <input id="medName" type="text" list="medicines" placeholder="Medicine Name" />
+      <datalist id="medicines"></datalist>
+      <input id="dosage" type="text" placeholder="Dosage (e.g., 1 tablet)" />
+      <input id="time" type="time" />
+      <button id="addBtn">Add Reminder</button>
+      <button id="voiceBtn">🎤 Speak</button>
+      <ul id="reminderList"></ul>
+    </section>
+
+    <!-- HISTORY PAGE -->
+    <section id="history" class="page">
+      <h2>History</h2>
+      <ul id="historyList"></ul>
+    </section>
+
+    <!-- TAKEN PAGE -->
+    <section id="taken" class="page">
+      <h2>Medicine Taken</h2>
+      <ul id="takenList"></ul>
+    </section>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav">
+      <button class="nav-btn active" data-target="home">🏠 Home</button>
+      <button class="nav-btn" data-target="history">📜 History</button>
+      <button class="nav-btn" data-target="taken">✅ Taken</button>
+    </nav>
+  </div>
+
+  <!-- Alarm Sound -->
+  <audio id="alarmSound">
+    <source src="data:audio/mp3;base64,//uQxAAAAAAAAAAAAAAAAAAAAAAAWGluZwAAAA8AAAACAAACcQCA..."
+    type="audio/mp3" />
+  </audio>
+
+  <script src="script.js"></script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("service-worker.js")
+      .then(() => console.log("✅ Service Worker Registered"))
+      .catch(err => console.error("❌ SW failed:", err));
+    }
+  </script>
+</body>
+</html>
