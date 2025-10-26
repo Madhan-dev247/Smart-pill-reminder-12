@@ -1,0 +1,10 @@
+{
+  "name": "Pill Care (SPR)",
+  "short_name": "PillCare",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#00b894",
+  "description": "Never miss your medicine again!",
+  "icons": []
+}
